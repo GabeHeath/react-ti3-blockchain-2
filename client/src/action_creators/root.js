@@ -8,6 +8,13 @@ export function clearPlayers() {
     }
 }
 
+export function resetRandomizer() {
+    return {
+        meta: {remote: true},
+        type: actionTypes.RESET_RANDOMIZER
+    };
+}
+
 export function setPlayers(players, totalPlayers) {
     return {
         meta: {remote: true},
@@ -15,6 +22,17 @@ export function setPlayers(players, totalPlayers) {
         payload: Map({
             players: players,
             totalPlayers: totalPlayers
+        })
+    };
+}
+
+export function setRaces(races, totalRaces) {
+    return {
+        meta: {remote: true},
+        type: actionTypes.SET_RACES,
+        payload: Map({
+            races: races,
+            total: totalRaces
         })
     };
 }

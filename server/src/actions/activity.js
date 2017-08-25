@@ -8,7 +8,8 @@ export function saveBlock(state, block) {
     return state.update('blocks', list => list.add(
         Map({
             hash: block,
-            message: null,
+            title: null,
+            description: null,
             timestamp: Date.now()
         })
     ));

@@ -5,3 +5,11 @@
  #players-form input {
      margin-bottom: 5px;
  }
+
+ .panel-secondary {
+     background-color: #e0e0e0;
+ }
+
+ .panel-secondary .panel-body {
+     background: #fff;
+ }

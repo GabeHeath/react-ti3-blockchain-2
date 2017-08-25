@@ -3,10 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {List} from 'immutable';
 import {setPlayers} from "../action_creators/root"
-// import {setRaces} from "../action_creators/race"
-import {startRandomizer} from "../action_creators/root"
+import {setRaces, startRandomizer} from "../action_creators/root"
 
-import {Alert, Button, Checkbox, Col, FormControl, Panel} from 'react-bootstrap';
+import {Alert, Button, Checkbox, Col, FormControl, Panel} from 'react-bootstrap'
 
 const spacer = {
     marginBottom: '35px'
@@ -88,9 +87,9 @@ class MainMenu extends Component {
             return false;
         }
 
-        // this.props.setRaces( this.state.races, totalRaces );
+        this.props.setRaces( this.state.races, totalRaces );
         this.props.setPlayers( players, totalPlayers );
-        // this.props.startRandomizer();
+        this.props.startRandomizer();
     };
 
     handleAlertDismiss() {
@@ -196,7 +195,7 @@ class MainMenu extends Component {
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         setPlayers: setPlayers,
-        // setRaces: setRaces,
+        setRaces: setRaces,
         startRandomizer: startRandomizer
     }, dispatch);
 }

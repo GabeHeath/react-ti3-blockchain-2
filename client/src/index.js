@@ -13,7 +13,7 @@ import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-const socket = io('http://localhost:8090');
+export const socket = io('http://localhost:8090');
 
 const enhancers = compose(
     applyMiddleware(
@@ -33,7 +33,7 @@ socket.on('state', state =>
 
 ReactDOM.render(
     (<Provider store={store}>
-        <App/>
+        <App socket={socket}/>
     </Provider>),
     document.getElementById('root'));
 

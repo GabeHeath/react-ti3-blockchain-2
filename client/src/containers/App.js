@@ -9,7 +9,7 @@ class App extends Component {
 
         return(
             <div>
-                { this.props.started ? <RandomizerMain/> : <MainMenu/> }
+                { this.props.started ? <RandomizerMain socket={this.props.socket}/> : <MainMenu/> }
             </div>
         )
     }
