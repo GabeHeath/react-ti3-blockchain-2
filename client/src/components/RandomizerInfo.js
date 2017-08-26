@@ -1,31 +1,39 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import FlipMove from 'react-flip-move';
 import {List} from 'immutable';
 
 class RandomizerInfo extends Component {
 
-    state = {
-      list: List([{id:1}, {id:2}, {id:3}, {id:4}, {id:5}])
-    };
-
-    handleClick() {
-        console.log(this.props.list);
-        this.setState({
-            list: this.state.list.unshift({id: 0})
-        })
-    }
+    // state = {
+    //     blocks: List()
+    // };
+    //
+    // componentWillReceiveProps(nextProps) {
+    //     if( this.props.blocks !== nextProps.blocks ) {
+    //         this.setState({blocks: this.state.blocks.unshift(nextProps.blocks.last())})
+    //     }
+    // }
 
     render() {
-        return(<div>
-    <FlipMove staggerDelayBy={20} staggerDurationBy="30" duration={500} appearAnimation="accordionVertical" enterAnimation="accordionVertical">
-        {this.state.list.map(article => (
-        <div key={article.id} {...article}>{article.id}</div>
-        ))}
-    </FlipMove>
-                <button onClick={() => {this.handleClick()}}>click</button>
+        return(
+            <div>
+                Sup
+                {/*<FlipMove staggerDelayBy={20} staggerDurationBy="30" duration={500} appearAnimation="accordionVertical" enterAnimation="fade">*/}
+                    {/*{this.state.blocks.map(article => {*/}
+                        {/*return <div key={article.get('hash')}>{article.get('hash')}</div>*/}
+                    {/*})}*/}
+                {/*</FlipMove>*/}
             </div>
         );
     }
 }
 
+// function mapStateToProps(state, ownProps) {
+//     return {
+//         blocks: state.getIn(['activity', 'blocks'])
+//     }
+// }
+
+// export default connect(mapStateToProps)(RandomizerInfo);
 export default RandomizerInfo;

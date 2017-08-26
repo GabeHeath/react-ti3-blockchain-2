@@ -53,27 +53,27 @@ export default function startServer(store) {
         })
     };
 
-    setTimeout(function () {
-        const block = "11111111"
-        store.dispatch({
-            type: actionTypes.SAVE_BLOCK,
-            block
-        })
-    }, 10000);
-
-    setTimeout(function () {
-        const block = "22222222"
-        store.dispatch({
-            type: actionTypes.SAVE_BLOCK,
-            block
-        })
-    }, 12000);
-
-    setTimeout(function () {
-        const block = "3333333333333"
-        store.dispatch({
-            type: actionTypes.SAVE_BLOCK,
-            block
-        })
-    }, 15000);
+    // setTimeout(function () {
+    //     const block = "11111111"
+    //     store.dispatch({
+    //         type: actionTypes.SAVE_BLOCK,
+    //         block
+    //     })
+    // }, 10000);
+    //
+    // setTimeout(function () {
+    //     const block = "22222222"
+    //     store.dispatch({
+    //         type: actionTypes.SAVE_BLOCK,
+    //         block
+    //     })
+    // }, 12000);
+    //
+    // setTimeout(function () {
+    //     const block = "3333333333333"
+    //     store.dispatch({
+    //         type: actionTypes.SAVE_BLOCK,
+    //         block
+    //     })
+    // }, 15000);
 }
