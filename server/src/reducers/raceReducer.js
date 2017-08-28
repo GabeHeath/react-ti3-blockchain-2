@@ -1,6 +1,6 @@
 import { Map, OrderedSet } from 'immutable';
 import * as actionTypes from '../action_types/race';
-import {setRaces} from "../actions/race";
+import {removeRace, setRaces} from "../actions/race";
 
 export const initialState = Map({
     total: 0,
@@ -11,6 +11,8 @@ export const initialState = Map({
 
 export default function(state = initialState, action) {
     switch (action.type) {
+        case actionTypes.REMOVE_RACE:
+            return removeRace(state, action.race);
         case actionTypes.SET_RACES:
             return setRaces(state, action.payload);
         default:

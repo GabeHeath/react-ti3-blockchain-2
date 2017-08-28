@@ -32,7 +32,7 @@ class RandomizerMain extends Component {
                 </Col>
 
                 <Col md={8}>
-                    <RandomizerInfo />
+                    <RandomizerInfo socket={this.props.socket}/>
                 </Col>
 
                 <Col md={4}>

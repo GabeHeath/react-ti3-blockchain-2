@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
         case actionTypes.CLEAR_BLOCKS:
             return clearBlocks(state);
         case actionTypes.SAVE_BLOCK:
-            return saveBlock(state, action.block);
+            return saveBlock(state, action.payload);
         default:
             return state;
     }

@@ -87,6 +87,11 @@ class MainMenu extends Component {
             return false;
         }
 
+        if (totalPlayers !== players.toSet().size) {
+            this.setState({errorMsg: 'Player names must be unique.'});
+            return false;
+        }
+
         this.props.setRaces( this.state.races, totalRaces );
         this.props.setPlayers( players, totalPlayers );
         this.props.startRandomizer();
