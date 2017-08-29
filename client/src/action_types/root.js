@@ -1,3 +1,4 @@
+export const CLEAR_BLOCKS = 'activity/CLEAR_BLOCKS';
 export const CLEAR_PLAYERS = 'player/CLEAR_PLAYERS';
 export const RESET_RANDOMIZER = 'randomizer/RESET';
 export const SET_PLAYERS = 'player/SET_PLAYERS';

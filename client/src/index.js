@@ -13,7 +13,7 @@ import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-export const socket = io('http://gabeheath.com:8090');
+export const socket = io('http://localhost:8090');
 
 const enhancers = compose(
     applyMiddleware(

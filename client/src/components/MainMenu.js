@@ -5,7 +5,7 @@ import {List} from 'immutable';
 import {setPlayers} from "../action_creators/root"
 import {setRaces, startRandomizer} from "../action_creators/root"
 
-import {Alert, Button, Checkbox, Col, FormControl, Panel} from 'react-bootstrap'
+import {Alert, Button, Checkbox, Col, FormControl, Modal, Panel} from 'react-bootstrap'
 
 const spacer = {
     marginBottom: '35px'
@@ -43,7 +43,9 @@ class MainMenu extends Component {
     state = {
         players: List(),
         races: baseGameRaces.concat(shatteredEmpireRaces, shardsOfTheThroneRaces).delete(16), //Removes The Lazax
-        errorMsg: null
+        errorMsg: null,
+        showModal: false,
+        isAdmin: false
     };
 
     handleCheck(event) {
@@ -72,23 +74,38 @@ class MainMenu extends Component {
         })
     }
 
+    handleAdmin(event) {
+        this.setState({
+            isAdmin: event.target.value === this.process.env.REACT_APP_PASSWORD
+        })
+    }
+
     handleStart() {
         const players = this.state.players.filter(p => p !== undefined && p.length > 0);
         const totalPlayers = players.size;
         const totalRaces = this.state.races.size;
 
+        if(!this.state.isAdmin) {
+            this.setState({
+                showModal: false,
+                errorMsg: 'Password is incorrect'
+            });
+            return false;
+        }
+        this.setState({ showModal: false });
+
         if (totalPlayers < 2) {
-            this.setState({errorMsg: 'Not enough players.'});
+            this.setState({errorMsg: 'Not enough players'});
             return false;
         }
 
         if (totalPlayers > totalRaces) {
-            this.setState({errorMsg: 'Not enough races selected for number of players.'});
+            this.setState({errorMsg: 'Not enough races selected for number of players'});
             return false;
         }
 
         if (totalPlayers !== players.toSet().size) {
-            this.setState({errorMsg: 'Player names must be unique.'});
+            this.setState({errorMsg: 'Player names must be unique'});
             return false;
         }
 
@@ -99,6 +116,14 @@ class MainMenu extends Component {
 
     handleAlertDismiss() {
         this.setState({errorMsg: null});
+    }
+
+    openModal() {
+        this.setState({ showModal: true });
+    }
+
+    closeModal() {
+        this.setState({ showModal: false });
     }
 
     render() {
@@ -118,9 +143,7 @@ class MainMenu extends Component {
                     {this.state.errorMsg ? <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss.bind(this)}>
                         <h4>{this.state.errorMsg}</h4></Alert> : null}
 
-                    <Button style={spacer} bsStyle="danger" bsSize="large" block onClick={() => {
-                        this.handleStart()
-                    }}>
+                    <Button style={spacer} bsStyle="danger" bsSize="large" block onClick={this.openModal.bind(this)}>
                         Start Randomizer
                     </Button>
                 </Col>
@@ -192,6 +215,22 @@ class MainMenu extends Component {
                         </Col>
                     </Panel>
                 </Col>
+
+                <Modal show={this.state.showModal} onHide={this.closeModal.bind(this)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>I don't think so...</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Alert bsStyle="info">I had to implement this because I know one of you guys would try to mess with it.</Alert>
+                        <FormControl placeholder="Password" onChange={this.handleAdmin.bind(this)} />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.closeModal.bind(this)}>Close</Button>
+                        <Button bsStyle="primary" onClick={() => {
+                            this.handleStart()
+                        }}>Submit</Button>
+                    </Modal.Footer>
+                </Modal>
             </Col>
         );
     }

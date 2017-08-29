@@ -24,6 +24,7 @@ export default function startServer(store) {
             if(!blockchainListenerStarted) {
                 blockchainListenerStarted = true;
                 console.log('Listening for blocks');
+                // ws.send(JSON.stringify({"op":"ping_block"})); DEBUG
                 ws.send(JSON.stringify({"op":"blocks_sub"}));
             }
         });

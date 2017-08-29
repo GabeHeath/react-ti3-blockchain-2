@@ -1,6 +1,13 @@
 import {Map} from 'immutable';
 import * as actionTypes from '../action_types/root';
 
+export function clearBlocks() {
+    return {
+        meta: {remote: true},
+        type: actionTypes.CLEAR_BLOCKS
+    }
+}
+
 export function clearPlayers() {
     return {
         meta: {remote: true},
