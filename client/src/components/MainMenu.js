@@ -118,7 +118,7 @@ class MainMenu extends Component {
                     {this.state.errorMsg ? <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss.bind(this)}>
                         <h4>{this.state.errorMsg}</h4></Alert> : null}
 
-                    <Button bsStyle="danger" bsSize="large" block onClick={() => {
+                    <Button style={spacer} bsStyle="danger" bsSize="large" block onClick={() => {
                         this.handleStart()
                     }}>
                         Start Randomizer

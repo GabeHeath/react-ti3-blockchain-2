@@ -7,8 +7,9 @@
  }
 
  .panel-primary time {
-     font-size: 1vw;
-     margin-top: 3px;
+     font-size: 12px;
+     margin-top: 4px;
+     margin-left: 10px;
      color: rgba(255, 255, 255, 0.75);
  }
 
@@ -17,8 +18,9 @@
  }
 
  .panel-secondary time {
-     font-size: 1vw;
-     margin-top: 3px;
+     font-size: 12px;
+     margin-top: 4px;
+     margin-left: 10px;
      color: rgba(0, 0, 0, 0.6);
  }
 

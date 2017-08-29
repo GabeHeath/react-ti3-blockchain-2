@@ -55,8 +55,7 @@ class ActivityFeed extends Component {
                     {this.state.blocks.map( (block, i) => {
                         return <Panel
                             header={<div>{block.get('title')} <TimeAgo className="pull-right" date={block.get('timestamp')} /><Clearfix/></div>}
-                            // key={block.get('title')}
-                            key={uuid.v4()}
+                            key={block.get('title')}
                             bsStyle={i === 0 ? 'primary' : 'secondary'}
                             collapsible
                             expanded={this.state.panelsOpen.get(i)}

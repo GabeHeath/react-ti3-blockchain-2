@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 // import {clearBlocks} from "../action_creators/activity"
 import {clearPlayers, resetRandomizer} from "../action_creators/root"
-import { Button, Col } from 'react-bootstrap';
+import { Button, Clearfix, Col } from 'react-bootstrap';
 import ActivityFeed from '../components/ActivityFeed';
 import RandomizerInfo from '../components/RandomizerInfo';
 
@@ -29,6 +29,7 @@ class RandomizerMain extends Component {
                     }}>
                         Reset
                     </Button>
+                    <Clearfix />
                 </Col>
 
                 <Col md={8}>
