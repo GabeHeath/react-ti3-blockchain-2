@@ -22,7 +22,7 @@ class RandomizerInfo extends Component {
                     <Table striped hover>
                         <thead>
                         <tr>
-                            <th>Player Order</th>
+                            <th>Turn Order</th>
                             <th>Player</th>
                             <th>Races</th>
                         </tr>
