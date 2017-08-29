@@ -20,7 +20,7 @@ class RandomizerMain extends Component {
 
     handleAdmin(event) {
         this.setState({
-            isAdmin: event.target.value === this.process.env.REACT_APP_PASSWORD
+            isAdmin: event.target.value === process.env.REACT_APP_PASSWORD
         })
     }
 
