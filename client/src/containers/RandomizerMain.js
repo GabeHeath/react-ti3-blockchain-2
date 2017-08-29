@@ -79,7 +79,7 @@ class RandomizerMain extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Alert bsStyle="info">I had to implement this because I know one of you guys would try to mess with it.</Alert>
-                        <FormControl placeholder="Password" onChange={this.handleAdmin.bind(this)} />
+                        <FormControl type="password" placeholder="Password" onChange={this.handleAdmin.bind(this)} />
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeModal.bind(this)}>Close</Button>
